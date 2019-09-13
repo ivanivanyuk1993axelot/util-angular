@@ -11,6 +11,7 @@ import {ComparatorFuncResultEnum} from '../../class-folder/comparator/comparator
 export function getMergedComparatorFunc<T>(comparatorFuncList: Array<ComparatorFuncType<T>>): ComparatorFuncType<T> {
   return (left, right: T) => {
     // setting initial value in case we got empty array
+    // todo move 0 to const
     let comparatorFuncResult: ComparatorFuncResultEnum = 0;
     for (const comparatorFunc of comparatorFuncList) {
       comparatorFuncResult = comparatorFunc(left, right);
